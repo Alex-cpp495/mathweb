@@ -7,6 +7,9 @@ WORKDIR /app
 # 复制package.json和package-lock.json（如果存在）
 COPY package*.json ./
 
+# 安装系统依赖和构建工具
+RUN apk add --no-cache python3 py3-pip make g++ && ln -sf python3 /usr/bin/python
+
 # 安装依赖
 RUN npm ci --only=production
 

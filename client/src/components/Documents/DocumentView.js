@@ -19,8 +19,7 @@ import {
   Alert,
   Avatar,
   Tab,
-  Tabs,
-  TabPanel
+  Tabs
 } from '@mui/material';
 import {
   ArrowBack as BackIcon,
