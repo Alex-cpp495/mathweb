@@ -1,0 +1,15 @@
+{
+  "short_name": "AI学习平台",
+  "name": "AI学习平台 - 个性化专属学习知识图谱",
+  "description": "基于AI技术的智能学习平台，为大学生提供个性化的知识图谱和学习路径规划",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["education", "productivity"],
+  "lang": "zh-CN",
+  "dir": "ltr"
+} 
