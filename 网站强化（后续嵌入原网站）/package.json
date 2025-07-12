@@ -1,0 +1,33 @@
+{
+  "name": "ai-learning-platform",
+  "version": "1.0.0",
+  "description": "AI驱动的个性化学习平台",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "start:server": "cd server && npm start",
+    "start:client": "cd client && npm start",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm start\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "test": "cd client && npm test",
+    "verify-deployment": "node verify-deployment.js",
+    "test-api": "cd server && npm run test-api",
+    "check-env": "node check-env-vars.js"
+  },
+  "keywords": [
+    "ai",
+    "learning",
+    "platform",
+    "knowledge-graph",
+    "education"
+  ],
+  "author": "AI Learning Platform Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  }
+} 

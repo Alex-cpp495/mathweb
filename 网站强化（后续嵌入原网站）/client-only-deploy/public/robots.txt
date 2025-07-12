@@ -1,0 +1,14 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# 排除敏感或无用页面
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# 指定站点地图位置
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# 爬取延迟设置（毫秒）
+Crawl-delay: 1 

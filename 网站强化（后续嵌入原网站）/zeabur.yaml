@@ -1,0 +1,60 @@
+name: ai-learning-platform
+
+services:
+  # MongoDB database
+  mongodb:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ai-learning-platform
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+
+  # Main application (Frontend + Backend)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      # 使用正确的MongoDB连接字符串
+      MONGO_URI: ${MONGO_CONNECTION_STRING}
+      MONGO_CONNECTION_STRING: ${MONGO_CONNECTION_STRING}
+      MONGODB_URI: ${MONGO_CONNECTION_STRING}
+      # MongoDB 详细配置
+      MONGO_HOST: ${MONGO_HOST}
+      MONGO_PORT: ${MONGO_PORT}
+      MONGO_USERNAME: ${MONGO_USERNAME}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+      # JWT 配置
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: 7d
+      # AI API 配置
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY}
+      # 前端配置
+      CLIENT_URL: ${CLIENT_URL}
+      REACT_APP_API_URL: ${REACT_APP_API_URL}
+      # 可选：Neo4j 配置
+      NEO4J_URI: ${NEO4J_URI}
+      NEO4J_USERNAME: ${NEO4J_USERNAME}
+      NEO4J_PASSWORD: ${NEO4J_PASSWORD}
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      - mongodb
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+
+volumes:
+  mongodb_data:
+  uploads:
+
+networks:
+  default:
+    driver: bridge 
